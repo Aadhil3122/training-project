@@ -8,7 +8,7 @@ export default function WelcomeSection() {
       <img
         src="/images/background/pattern-1.png"
         alt="inside pic1"
-        className="absolute left-0 transition-transform duration-500  group-hover:rotate-[360deg] "
+        className="absolute left-0 transition-transform duration-500  `group-hover:rotate-[360deg]` "
       />
 
       {/* Decorative Background Dots - Right Side */}
@@ -47,7 +47,7 @@ export default function WelcomeSection() {
             {/* Small Image with Text Box */}
             <div className="flex gap-6 items-start">
               {/* Small Image */}
-              <div className="flex-shrink-0">
+              <div className="`flex-shrink-0`">
                 <img
                   src="/images/gallery/4.jpg"
                   alt="Student reading Quran"
@@ -63,7 +63,7 @@ export default function WelcomeSection() {
                 </p>
 
                 {/* Green Icon Box */}
-                <div className="flex items-center gap-3 bg-teal-600 text-white p-4 rounded-lg inline-flex">
+                <div className="flex items-center gap-3 bg-teal-600 text-white p-4 rounded-lg `inline-flex`">
                   <Crown className="w-6 h-6" />
                   <div>
                     <p className="font-semibold">Learn Online at Your</p>
