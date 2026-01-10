@@ -1,7 +1,7 @@
 const courses = [
-  { title: "Beginner Quran", img: "/images/course1.jpg" },
-  { title: "Tajweed", img: "/images/course2.jpg" },
-  { title: "Hifz", img: "/images/course3.jpg" },
+  { title: "Beginner Quran", img: "/images/resource/course-1.jpg" },
+  { title: "Tajweed", img: "/images/resource/course-2.jpg" },
+  { title: "Hifz", img: "/images/resource/course-3.jpg" },
 ];
 
 export default function Courses() {

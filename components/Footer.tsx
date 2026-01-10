@@ -1,7 +1,12 @@
 export default function Footer() {
   return (
-    <div className="bg-black text-white p-5 text-center">
-      © 2026 Islamic Madrasah. All rights reserved.
+    <div>
+      <img
+        src="/images/background/footer-bg_2.jpg"
+        alt="footer"
+        className=" text-sm © 2026
+      Islamic Madrasah. All rights reserved."
+      />
     </div>
   );
 }

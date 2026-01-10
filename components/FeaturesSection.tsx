@@ -21,7 +21,7 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="0">
       {/* Hero Section with Background Image */}
       <div className="relative h-[0px] bg-gradient-to-r from-gray-400 to-gray-300 overflow-hidden">
         {/* Background Image */}

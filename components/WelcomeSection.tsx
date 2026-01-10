@@ -1,5 +1,7 @@
+"use client";
 import React from "react";
 import { Crown, Globe } from "lucide-react";
+import Image from "next/image";
 
 export default function WelcomeSection() {
   return (
@@ -29,7 +31,13 @@ export default function WelcomeSection() {
                 ISLAMIC ONLINE MADRASAH
               </span>
               <span className="text-gray-300 text-2xl"></span>
-              <img src="/images/gallery/4.png" alt="" />
+              {/* <img src="/images/gallery/4.png" alt="" /> */}
+              <Image
+                src="/images/gallery/4.jpg"
+                alt="Student reading Quran"
+                width={100}
+                height={100}
+              />
             </div>
 
             {/* Main Heading */}
