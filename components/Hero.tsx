@@ -23,7 +23,7 @@ export default function Hero() {
     setCurrent((current - 1 + images.length) % images.length);
 
   return (
-    <div className="relative `h-[700px]` w-full overflow-hidden">
+    <div className="relative h-[700px] w-full overflow-hidden">
       {/* Slider Wrapper */}
       <div
         className="flex h-full w-[300%] transition-transform duration-700"
@@ -32,7 +32,7 @@ export default function Hero() {
         {images.map((img, index) => (
           <div
             key={index}
-            className="h-full w-full `flex-shrink-0` bg-cover bg-center"
+            className="h-full w-full flex-shrink-0 bg-cover bg-center"
             style={{ backgroundImage: `url('${img}')` }}
           />
         ))}

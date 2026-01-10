@@ -41,7 +41,6 @@ export default function FeaturesSection() {
             {/* Background Image */}
             <img
               src="/images/background/courses-one_bg.png"
-              alt="background"
               className="absolute inset-0 w-full h-full object-cover opacity-80 rounded-3xl"
             />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 relative z-10">
