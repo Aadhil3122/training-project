@@ -6,6 +6,7 @@ import WelcomeSection from "../components/WelcomeSection";
 import Services from "../components/Services";
 import Courses from "../components/Courses";
 import Gallery from "../components/Gallery";
+import TopPrefooter from "../components/TopPrefooter";
 import PreFooter from "../components/Prefooter";
 import Footer from "../components/Footer";
 
@@ -20,6 +21,7 @@ export default function Home() {
       <Services />
       <Courses />
       <Gallery />
+      <TopPrefooter/>
       <PreFooter />
       <Footer />
     </>
