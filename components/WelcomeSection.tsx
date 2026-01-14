@@ -1,16 +1,16 @@
 "use client";
 import React from "react";
-import { Crown, Globe } from "lucide-react";
+import { Globe } from "lucide-react";
 import Image from "next/image";
 
 export default function WelcomeSection() {
   return (
-    <div className="relative bg-white py-4 px-4 overflow-hidden">
+    <div className="relative bg-white py-4 px-4 overflow-hidden ">
       {/* Decorative Background Dots - Left Side */}
       <img
         src="/images/background/pattern-1.png"
         alt="inside pic1"
-        className="absolute left-0 transition-transform duration-500  `group-hover:rotate-[360deg]` "
+        className="absolute left-0 transform transition-all duration-1000 ease-in-out hover:rotate-[360deg]"
       />
 
       {/* Decorative Background Dots - Right Side */}
@@ -31,12 +31,12 @@ export default function WelcomeSection() {
                 ISLAMIC ONLINE MADRASAH
               </span>
               <span className="text-gray-300 text-2xl"></span>
-              {/* <img src="/images/gallery/4.png" alt="" /> */}
+              {/* <img src="/images/icons/bismillah-5.png" alt="" /> */}
               <Image
-                src="/images/gallery/4.jpg"
+                src="/images/icons/bismillah-5.png"
                 alt="Student reading Quran"
-                width={100}
-                height={100}
+                width={120}
+                height={120}
               />
             </div>
 
@@ -71,11 +71,18 @@ export default function WelcomeSection() {
                 </p>
 
                 {/* Green Icon Box */}
-                <div className="flex items-center gap-3 bg-teal-600 text-white p-4 rounded-lg `inline-flex`">
-                  <Crown className="w-6 h-6" />
+                <div className="flex items-center  `inline-flex`">
+                  <div className="rounded-full bg-green-700 w-20 h-20 flex items-center justify-center mr-4 shadow-lg">
+                    <img
+                      src="/images/icons/download mos.jpg"
+                      className="w-15 h-15 rounded-full"
+                    />
+                  </div>
                   <div>
-                    <p className="font-semibold">Learn Online at Your</p>
-                    <p className="text-sm">Own Pace</p>
+                    <p className="font-semibold text-green-700">
+                      Learn Online at Your
+                    </p>
+                    <p className="font-semibold text-green-700">Own Pace</p>
                   </div>
                 </div>
               </div>
@@ -112,14 +119,14 @@ export default function WelcomeSection() {
                     fontFamily="Arial"
                     fontWeight="bold"
                   >
-                    <img src="/images/icons/ameen-1.png" alt="" />
+                    <img src="/images/icons/ameen-1.png" alt="aameen" />
                   </text>
                 </svg>
               </div>
 
               {/* Yellow Badge at Bottom */}
-              <div className="absolute bottom-0 left-0 bg-yellow-400 text-gray-900 px-6 py-4 rounded-tr-2xl flex items-center gap-3 shadow-lg">
-                <Globe className="w-6 h-6" />
+              <div className="absolute bottom-0 left-0 bg-gradient-to-r from-green-500 via-lime-400 to-yellow-600 text-gray-900 px-6 py-4 rounded-tr-2xl flex items-center gap-3 shadow-lg  ">
+                <Globe className="w-6 h-6 " />
                 <div>
                   <p className="font-bold text-lg">
                     Since 1995 Operating in the world

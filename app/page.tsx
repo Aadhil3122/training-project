@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import FeaturesSection from "../components/FeaturesSection";
 import WelcomeSection from "../components/WelcomeSection";
+import AfterWelcomeSection from "../components/AfterWelcomeSection";
 import Services from "../components/Services";
 import Courses from "../components/Courses";
 import Gallery from "../components/Gallery";
@@ -18,6 +19,7 @@ export default function Home() {
       <Hero />
       <FeaturesSection />
       <WelcomeSection />
+      <AfterWelcomeSection />
       <Services />
       <Courses />
       <Gallery />

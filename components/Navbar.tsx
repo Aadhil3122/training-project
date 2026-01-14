@@ -24,8 +24,8 @@ export default function Navbar() {
 
         {/* Right */}
         <div className="flex items-center space-x-4 gap-4">
-          <Search className="cursor-pointer" />
-          <User className="cursor-pointer" />
+          <Search className="w-10 h-10 rounded-full bg-[#d1e2e8]  cursor-pointer hover:bg-green-700 " />
+          <User className="w-10 h-10 rounded-full bg-[#d4e6eb] cursor-pointer hover:bg-green-700" />
 
           <button className="bg-green-700 text-white px-8 py-3 rounded hover:bg-black-500">
             Quick Join Now
