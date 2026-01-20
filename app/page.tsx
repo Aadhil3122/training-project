@@ -4,8 +4,11 @@ import Hero from "../components/Hero";
 import FeaturesSection from "../components/FeaturesSection";
 import WelcomeSection from "../components/WelcomeSection";
 import AfterWelcomeSection from "../components/AfterWelcomeSection";
+import StudentsStatsSection from "../components/StudentsStatsSection";
 import Services from "../components/Services";
 import Courses from "../components/Courses";
+import InstituteSection from "../components/InstituteSection";
+import CustomersReview from "../components/CustomersReview";
 import Gallery from "../components/Gallery";
 import TopPrefooter from "../components/TopPrefooter";
 import PreFooter from "../components/Prefooter";
@@ -20,8 +23,11 @@ export default function Home() {
       <FeaturesSection />
       <WelcomeSection />
       <AfterWelcomeSection />
+      <StudentsStatsSection />
       <Services />
       <Courses />
+      <InstituteSection />
+      <CustomersReview/>
       <Gallery />
       <TopPrefooter/>
       <PreFooter />
