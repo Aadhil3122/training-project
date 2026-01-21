@@ -9,6 +9,7 @@ import Services from "../components/Services";
 import Courses from "../components/Courses";
 import InstituteSection from "../components/InstituteSection";
 import CustomersReview from "../components/CustomersReview";
+import IslamicInstitute from "../components/IslamicInstitute";
 import Gallery from "../components/Gallery";
 import TopPrefooter from "../components/TopPrefooter";
 import PreFooter from "../components/Prefooter";
@@ -28,6 +29,7 @@ export default function Home() {
       <Courses />
       <InstituteSection />
       <CustomersReview/>
+      <IslamicInstitute />
       <Gallery />
       <TopPrefooter/>
       <PreFooter />
