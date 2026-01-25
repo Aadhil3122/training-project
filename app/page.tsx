@@ -11,6 +11,7 @@ import InstituteSection from "../components/InstituteSection";
 import CustomersReview from "../components/CustomersReview";
 import IslamicInstitute from "../components/IslamicInstitute";
 import Gallery from "../components/Gallery";
+import NewsUpdate from "../components/NewsUpdate";
 import TopPrefooter from "../components/TopPrefooter";
 import PreFooter from "../components/Prefooter";
 import Footer from "../components/Footer";
@@ -31,6 +32,7 @@ export default function Home() {
       <CustomersReview/>
       <IslamicInstitute />
       <Gallery />
+      <NewsUpdate />
       <TopPrefooter/>
       <PreFooter />
       <Footer />

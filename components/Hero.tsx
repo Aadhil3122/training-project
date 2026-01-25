@@ -10,7 +10,7 @@ export default function Hero() {
 
   const [current, setCurrent] = useState(0);
 
-  // Auto slide every 3 seconds
+  // Auto slide
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
@@ -23,8 +23,8 @@ export default function Hero() {
     setCurrent((current - 1 + images.length) % images.length);
 
   return (
-    <div className="relative h-[700px] w-full overflow-hidden">
-      {/* Slider Wrapper */}
+    <div className="relative h-[420px] sm:h-[520px] md:h-[650px] lg:h-[700px] w-full overflow-hidden">
+      {/* Slider */}
       <div
         className="flex h-full w-[300%] transition-transform duration-700"
         style={{ transform: `translateX(-${current * 100}%)` }}
@@ -38,20 +38,26 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Overlay Text */}
-      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center space-y-4 px-4 text-center">
-        <h4 className="text-white text-xl md:text-2xl font-semibold">
+      {/* Overlay Content */}
+      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center px-4 text-center">
+        <h4 className="text-white text-sm sm:text-lg md:text-xl font-semibold tracking-wide">
           LARGEST ONLINE MADRASAH
         </h4>
-        <h1 className="text-white text-6xl font-bold md:text-7xl ">
+
+        <h1 className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mt-2">
           Islamic Online
         </h1>
-        <h1 className="text-white text-6xl md:text-7xl font-bold">Madrasah</h1>
-        <h4 className="text-white  text-xl md:text-xl ">
+
+        <h1 className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
+          Madrasah
+        </h1>
+
+        <p className="text-white text-sm sm:text-base md:text-lg max-w-2xl mt-4">
           Islamic online madrasah is an ISO certified educational institution of
           international standards
-        </h4>
-        <button className="bg-yellow-400 text-white px-8 py-3 rounded hover:bg-green-700">
+        </p>
+
+        <button className="mt-6 bg-yellow-400 text-white px-6 sm:px-8 py-3 rounded hover:bg-green-700 transition">
           Quick Join Now
         </button>
       </div>
@@ -59,7 +65,7 @@ export default function Hero() {
       {/* Left Arrow */}
       <button
         onClick={goPrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white px-3 py-1 rounded-full"
+        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 bg-black/50 text-white w-10 h-10 flex items-center justify-center rounded-full text-2xl"
       >
         ‹
       </button>
@@ -67,7 +73,7 @@ export default function Hero() {
       {/* Right Arrow */}
       <button
         onClick={goNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white px-3 py-1 rounded-full"
+        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 bg-black/50 text-white w-10 h-10 flex items-center justify-center rounded-full text-2xl"
       >
         ›
       </button>

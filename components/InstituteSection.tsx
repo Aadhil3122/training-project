@@ -7,78 +7,76 @@ export default function InstituteSection() {
       image: "/images/icons/quran.png",
       title: "Expert Quran Tutor",
       desc: "All the classes of online Quran teaching are conducted by well qualified Islamic scholars",
-      bg: "bg-[#FFFBEF]",
     },
     {
       id: 2,
       image: "/images/icons/pray.png",
       title: "We Value Our Students",
       desc: "All the classes of online Quran teaching are conducted by well qualified Islamic scholars",
-      bg: "bg-[#EEF8F4]",
     },
     {
       id: 3,
       image: "/images/icons/teach.png",
       title: "Male Female Teachers",
       desc: "All the classes of online Quran teaching are conducted by well qualified Islamic scholars",
-      bg: "bg-[#FFFDF9]",
     },
     {
       id: 4,
       image: "/images/icons/time.png",
       title: "Flexible Timings",
       desc: "All the classes of online Quran teaching are conducted by well qualified Islamic scholars",
-      bg: "bg-[#F6F8EF]",
     },
   ];
 
   return (
-    <section className="w-full py-32 px-4">
+    <section className="w-full py-20 sm:py-24 md:py-32 px-4">
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
-        <div className="text-center mb-16">
-          <p className="text-teal-600 text-sm font-semibold mb-2 uppercase tracking-wide">
+        <div className="text-center mb-12 sm:mb-16">
+          <p className="text-teal-600 text-xs sm:text-sm font-semibold mb-2 uppercase tracking-wide">
             WHY TO CHOOSE US
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
             Why Choose Our Islamic
           </h2>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
             Institute
           </h2>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {instituteData.map((item) => (
             <div
               key={item.id}
-              className={`group relative overflow-hidden
-              rounded-[30px] border border-black/80
-              // ${item.bg} px-6 py-22 text-center
+              className="group relative overflow-hidden
+              rounded-3xl border border-black/70
+              px-6 py-10 sm:py-12 text-center
               transition-all duration-700
-              hover:bg-gradient-to-b hover:from-green-500 hover:to-yellow-400`}
+              bg-white
+              hover:bg-gradient-to-b hover:from-green-500 hover:to-yellow-400"
             >
 
-              {/* HOVER BACKGROUND IMAGE */}
+              {/* Hover Arabic Background */}
               <div
-                className="absolute inset-0 mt-4 bg-center bg-no-repeat bg-contain
+                className="absolute inset-0 bg-center bg-no-repeat bg-contain
                 opacity-0 transition-opacity duration-700
                 group-hover:opacity-100"
                 style={{
                   backgroundImage: "url('/images/icons/bismillah-5.png')",
                 }}
-              ></div>
+              />
 
-              {/* CONTENT */}
+              {/* Content */}
               <div className="relative z-10">
 
-                {/* Rotating Icon + Color */}
+                {/* Icon */}
                 <div
-                  className="w-20 h-20 mx-auto mb-6 flex items-center justify-center
+                  className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-5
+                  flex items-center justify-center
                   rounded-full bg-yellow-400
-                  transition-all duration-700 ease-in-out
+                  transition-all duration-700
                   group-hover:rotate-[360deg]
                   group-hover:bg-gradient-to-r
                   group-hover:from-green-500
@@ -87,17 +85,17 @@ export default function InstituteSection() {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-10 h-10"
+                    className="w-8 h-8 sm:w-10 sm:h-10"
                   />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-black group-hover:text-white transition-colors duration-500">
+                <h3 className="text-lg sm:text-xl font-bold text-black group-hover:text-white transition-colors duration-500">
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-gray-600 mt-4 leading-relaxed group-hover:text-white transition-colors duration-500">
+                <p className="text-sm sm:text-base text-gray-600 mt-4 leading-relaxed group-hover:text-white transition-colors duration-500">
                   {item.desc}
                 </p>
 
