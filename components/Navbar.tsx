@@ -112,15 +112,19 @@ export default function Navbar() {
             </div>
           </div>
 
-
-
           {/* Pages DROPDOWN */}
           <div className="relative group">
             <span className="cursor-pointer py-6 inline-block">Pages</span>
 
             <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
               <ul className="py-2 text-sm font-medium">
-                {["FAQ'S", " PRAYER TIME","RECORD CLASS","REGISTER","NOT FOUND"].map((item) => (
+                {[
+                  "FAQ'S",
+                  " PRAYER TIME",
+                  "RECORD CLASS",
+                  "REGISTER",
+                  "NOT FOUND",
+                ].map((item) => (
                   <li key={item} className="group/item">
                     <Link
                       href={`/${item.toLowerCase().replace(" ", "-")}`}
@@ -168,7 +172,6 @@ export default function Navbar() {
             </div>
           </div>
 
-
           {/* service DROPDOWN */}
           <div className="relative group">
             <span className="cursor-pointer py-6 inline-block">Service</span>
@@ -191,7 +194,6 @@ export default function Navbar() {
               </ul>
             </div>
           </div>
-
 
           {/* courses DROPDOWN */}
           <div className="relative group">
@@ -216,11 +218,34 @@ export default function Navbar() {
             </div>
           </div>
 
+          {/* Blogs DROPDOWN */}
+          <div className="relative group">
+            <span className="cursor-pointer py-6 inline-block">Blogs</span>
+
+            <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <ul className="py-2 text-sm font-medium">
+                {["OUR BLOGS", "BLOGS CLASSIC", "BLOGS DETAILS"].map((item) => (
+                  <li key={item} className="group/item">
+                    <Link
+                      href={`/${item.toLowerCase().replace(" ", "-")}`}
+                      className="flex items-center justify-between px-5 py-3 transition-all duration-200 group-hover/item:pl-7"
+                    >
+                      <span>{item}</span>
+                      <span className="opacity-0 -translate-x-2 transition-all duration-200 group-hover/item:opacity-100 group-hover/item:translate-x-0">
+                        →
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
           {/* OTHER LINKS */}
           {/* <Link href="/services">Pages</Link> */}
           {/* <Link href="/services">Service</Link> */}
-          <Link href="/courses">Courses</Link>
-          <Link href="/blog">Blog</Link>
+          {/* <Link href="/courses">Courses</Link> */}
+          {/* <Link href="/blog">Blog</Link> */}
           <Link href="/contact">Contact</Link>
         </div>
 
