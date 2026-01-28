@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, User, Menu } from "lucide-react";
+import { Search, User, Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [userOpen, setUserOpen] = useState(false);
 
   const homePages = [
     { img: "/images/pages/Home-1.jpg", label: "Home 01", link: "/" },
@@ -19,250 +21,509 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="relative z-50 bg-white shadow overflow-visible">
-      <div className="mx-auto max-w-7xl flex items-center justify-between px-4 py-4 overflow-visible">
-        {/* LOGO */}
-        <img src="/images/logo.svg" alt="Logo" className="h-10" />
+    <>
+      <nav className="relative z-50 bg-white shadow overflow-visible">
+        <div className="mx-auto max-w-7xl flex items-center justify-between px-4 py-4 overflow-visible">
+          {/* LOGO */}
+          <img src="/images/logo.svg" alt="Logo" className="h-10" />
 
-        {/* DESKTOP MENU */}
-        <div className="hidden md:flex items-center gap-8 font-semibold">
-          {/* HOME MEGA MENU */}
-          <div className="relative group">
-            <span className="cursor-pointer py-6 inline-block">Home</span>
+          {/* DESKTOP MENU */}
+          <div className="hidden md:flex items-center gap-8 font-semibold">
+            {/* HOME MEGA MENU */}
+            <div className="relative group">
+              <span className="cursor-pointer py-6 inline-block">Home</span>
 
-            <div className="absolute top-full left-0 w-screen opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-              <div className="h-3"></div>
+              <div className="absolute top-full left-0 w-screen opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="h-3"></div>
 
-              <div className="bg-white border-t shadow-2xl">
-                <div className="max-w-7xl mx-auto px-10 py-10">
-                  <div className="grid grid-cols-4 gap-8">
-                    {homePages.map((item) => (
-                      <Link key={item.label} href={item.link}>
-                        <div className="group">
-                          <div className="overflow-hidden rounded-lg border">
-                            <img
-                              src={item.img}
-                              alt={item.label}
-                              className="w-full h-[180px] object-cover transition-transform duration-300 group-hover:scale-105"
-                            />
+                <div className="bg-white border-t shadow-2xl">
+                  <div className="max-w-7xl mx-auto px-10 py-10">
+                    <div className="grid grid-cols-4 gap-8">
+                      {homePages.map((item) => (
+                        <Link key={item.label} href={item.link}>
+                          <div className="group">
+                            <div className="overflow-hidden rounded-lg border">
+                              <img
+                                src={item.img}
+                                alt={item.label}
+                                className="w-full h-[180px] object-cover transition-transform duration-300 group-hover:scale-105"
+                              />
+                            </div>
+                            <div className="mt-3 text-center text-sm font-semibold bg-gray-100 rounded py-2 transition group-hover:bg-green-700 group-hover:text-white">
+                              {item.label}
+                            </div>
                           </div>
-                          <div className="mt-3 text-center text-sm font-semibold bg-gray-100 rounded py-2 transition group-hover:bg-green-700 group-hover:text-white">
-                            {item.label}
-                          </div>
-                        </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ABOUT DROPDOWN */}
+            <div className="relative group">
+              <span className="cursor-pointer py-6 inline-block">About</span>
+
+              <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <ul className="py-2 text-sm font-medium">
+                  {["About Us", "Price"].map((item) => (
+                    <li key={item} className="group/item">
+                      <Link
+                        href={`/${item.toLowerCase().replace(" ", "-")}`}
+                        className="flex items-center justify-between px-5 py-3 transition-all duration-200 group-hover/item:pl-7"
+                      >
+                        <span>{item}</span>
+                        <span className="opacity-0 -translate-x-2 transition-all duration-200 group-hover/item:opacity-100 group-hover/item:translate-x-0">
+                          →
+                        </span>
                       </Link>
-                    ))}
+                    </li>
+                  ))}
+
+                  {/* EVENTS WITH SUBMENU */}
+                  <li className="relative group/item">
+                    <div className="flex items-center justify-between px-5 py-3 cursor-pointer transition-all duration-200 group-hover/item:pl-7">
+                      <span>Events</span>
+                      <span className="opacity-0 -translate-x-2 transition-all duration-200 group-hover/item:opacity-100 group-hover/item:translate-x-0">
+                        →
+                      </span>
+                    </div>
+
+                    <div className="absolute top-0 left-full ml-1 w-52 bg-white shadow-lg rounded opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200">
+                      <ul className="py-2">
+                        <li>
+                          <Link
+                            href="/events"
+                            className="block px-5 py-3 hover:pl-7 transition-all"
+                          >
+                            Events
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/event-detail"
+                            className="block px-5 py-3 hover:pl-7 transition-all"
+                          >
+                            Event Detail
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Pages DROPDOWN */}
+            <div className="relative group">
+              <span className="cursor-pointer py-6 inline-block">Pages</span>
+
+              <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <ul className="py-2 text-sm font-medium">
+                  {[
+                    "FAQ'S",
+                    "PRAYER TIME",
+                    "RECORD CLASS",
+                    "REGISTER",
+                    "NOT FOUND",
+                  ].map((item) => (
+                    <li key={item} className="group/item">
+                      <Link
+                        href={`/${item.toLowerCase().replace(/\s+/g, "-").replace("'", "")}`}
+                        className="flex items-center justify-between px-5 py-3 transition-all duration-200 group-hover/item:pl-7"
+                      >
+                        <span>{item}</span>
+                        <span className="opacity-0 -translate-x-2 transition-all duration-200 group-hover/item:opacity-100 group-hover/item:translate-x-0">
+                          →
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+
+                  {/* SCHOLARS WITH SUBMENU */}
+                  <li className="relative group/item">
+                    <div className="flex items-center justify-between px-5 py-3 cursor-pointer transition-all duration-200 group-hover/item:pl-7">
+                      <span>SCHOLARS</span>
+                      <span className="opacity-0 -translate-x-2 transition-all duration-200 group-hover/item:opacity-100 group-hover/item:translate-x-0">
+                        →
+                      </span>
+                    </div>
+
+                    <div className="absolute top-0 left-full ml-1 w-52 bg-white shadow-lg rounded opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200">
+                      <ul className="py-2">
+                        <li>
+                          <Link
+                            href="/scholars"
+                            className="block px-5 py-3 hover:pl-7 transition-all"
+                          >
+                            SCHOLARS
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/scholars-detail"
+                            className="block px-5 py-3 hover:pl-7 transition-all"
+                          >
+                            SCHOLARS DETAILS
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* service DROPDOWN */}
+            <div className="relative group">
+              <span className="cursor-pointer py-6 inline-block">Service</span>
+
+              <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <ul className="py-2 text-sm font-medium">
+                  {["SERVICE", "SERVICE DETAILS"].map((item) => (
+                    <li key={item} className="group/item">
+                      <Link
+                        href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                        className="flex items-center justify-between px-5 py-3 transition-all duration-200 group-hover/item:pl-7"
+                      >
+                        <span>{item}</span>
+                        <span className="opacity-0 -translate-x-2 transition-all duration-200 group-hover/item:opacity-100 group-hover/item:translate-x-0">
+                          →
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* courses DROPDOWN */}
+            <div className="relative group">
+              <span className="cursor-pointer py-6 inline-block">Courses</span>
+
+              <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <ul className="py-2 text-sm font-medium">
+                  {["COURSES", "COURSES DETAILS"].map((item) => (
+                    <li key={item} className="group/item">
+                      <Link
+                        href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                        className="flex items-center justify-between px-5 py-3 transition-all duration-200 group-hover/item:pl-7"
+                      >
+                        <span>{item}</span>
+                        <span className="opacity-0 -translate-x-2 transition-all duration-200 group-hover/item:opacity-100 group-hover/item:translate-x-0">
+                          →
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Blogs DROPDOWN */}
+            <div className="relative group">
+              <span className="cursor-pointer py-6 inline-block">Blogs</span>
+
+              <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <ul className="py-2 text-sm font-medium">
+                  {["OUR BLOGS", "BLOGS CLASSIC", "BLOGS DETAILS"].map(
+                    (item) => (
+                      <li key={item} className="group/item">
+                        <Link
+                          href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                          className="flex items-center justify-between px-5 py-3 transition-all duration-200 group-hover/item:pl-7"
+                        >
+                          <span>{item}</span>
+                          <span className="opacity-0 -translate-x-2 transition-all duration-200 group-hover/item:opacity-100 group-hover/item:translate-x-0">
+                            →
+                          </span>
+                        </Link>
+                      </li>
+                    ),
+                  )}
+                </ul>
+              </div>
+            </div>
+
+            {/* CONTACT DROPDOWN */}
+            <div className="relative group">
+              <Link
+                href="/contact"
+                className="cursor-pointer py-6 inline-block"
+              >
+                Contact
+              </Link>
+
+              <div className="absolute top-full right-0 mt-2 w-80 bg-white shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="p-6">
+                  {/* Image */}
+                  <div className="mb-4 overflow-hidden rounded-lg">
+                    <img
+                      src="/images/resource/news-2.jpg"
+                      alt="Contact"
+                      className="w-full h-48 object-cover"
+                    />
+                  </div>
+
+                  {/* Contact Details */}
+                  <div className="space-y-3 text-sm">
+                    <div className="flex items-start gap-3">
+                      <span className="text-green-700 font-semibold min-w-[80px]">
+                        Email:
+                      </span>
+                      <span className="text-gray-600">Support24@gmail.com</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="text-green-700 font-semibold min-w-[80px]">
+                        Address:
+                      </span>
+                      <span className="text-gray-600">
+                        Suite 99 Golden Street Germany
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="text-green-700 font-semibold min-w-[80px]">
+                        Sunrise:
+                      </span>
+                      <span className="text-gray-600">6:15 AM</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="text-green-700 font-semibold min-w-[80px]">
+                        Sunset:
+                      </span>
+                      <span className="text-gray-600">4:00 PM</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="text-green-700 font-semibold min-w-[80px]">
+                        Phone:
+                      </span>
+                      <span className="text-gray-600">
+                        Let's Talk +88 01 27 14 101
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* ABOUT DROPDOWN */}
-          <div className="relative group">
-            <span className="cursor-pointer py-6 inline-block">About</span>
-
-            <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-              <ul className="py-2 text-sm font-medium">
-                {["About Us", "Price"].map((item) => (
-                  <li key={item} className="group/item">
-                    <Link
-                      href={`/${item.toLowerCase().replace(" ", "-")}`}
-                      className="flex items-center justify-between px-5 py-3 transition-all duration-200 group-hover/item:pl-7"
-                    >
-                      <span>{item}</span>
-                      <span className="opacity-0 -translate-x-2 transition-all duration-200 group-hover/item:opacity-100 group-hover/item:translate-x-0">
-                        →
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-
-                {/* EVENTS WITH SUBMENU */}
-                <li className="relative group/item">
-                  <div className="flex items-center justify-between px-5 py-3 cursor-pointer transition-all duration-200 group-hover/item:pl-7">
-                    <span>Events</span>
-                    <span className="opacity-0 -translate-x-2 transition-all duration-200 group-hover/item:opacity-100 group-hover/item:translate-x-0">
-                      →
-                    </span>
-                  </div>
-
-                  <div className="absolute top-0 left-full ml-1 w-52 bg-white shadow-lg rounded opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200">
-                    <ul className="py-2">
-                      <li>
-                        <Link
-                          href="/events"
-                          className="block px-5 py-3 hover:pl-7 transition-all"
-                        >
-                          Events
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/event-detail"
-                          className="block px-5 py-3 hover:pl-7 transition-all"
-                        >
-                          Event Detail
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
+          {/* RIGHT */}
+          <div className="hidden md:flex items-center gap-4">
+            <button
+              onClick={() => setSearchOpen(true)}
+              className="w-10 h-10 p-2 rounded-full bg-gray-100 hover:bg-green-700 hover:text-white transition-colors cursor-pointer"
+              aria-label="Search"
+            >
+              <Search className="w-full h-full" />
+            </button>
+            <button
+              onClick={() => setUserOpen(true)}
+              className="w-10 h-10 p-2 rounded-full bg-gray-100 hover:bg-green-700 hover:text-white transition-colors cursor-pointer"
+              aria-label="User Login"
+            >
+              <User className="w-full h-full" />
+            </button>
+            <button className="bg-green-700 text-white px-6 py-3 rounded hover:bg-green-800 transition-colors">
+              Quick Join Now
+            </button>
           </div>
 
-          {/* Pages DROPDOWN */}
-          <div className="relative group">
-            <span className="cursor-pointer py-6 inline-block">Pages</span>
-
-            <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-              <ul className="py-2 text-sm font-medium">
-                {[
-                  "FAQ'S",
-                  " PRAYER TIME",
-                  "RECORD CLASS",
-                  "REGISTER",
-                  "NOT FOUND",
-                ].map((item) => (
-                  <li key={item} className="group/item">
-                    <Link
-                      href={`/${item.toLowerCase().replace(" ", "-")}`}
-                      className="flex items-center justify-between px-5 py-3 transition-all duration-200 group-hover/item:pl-7"
-                    >
-                      <span>{item}</span>
-                      <span className="opacity-0 -translate-x-2 transition-all duration-200 group-hover/item:opacity-100 group-hover/item:translate-x-0">
-                        →
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-
-                {/* SCHOLARS WITH SUBMENU */}
-                <li className="relative group/item">
-                  <div className="flex items-center justify-between px-5 py-3 cursor-pointer transition-all duration-200 group-hover/item:pl-7">
-                    <span>SCHOLARS</span>
-                    <span className="opacity-0 -translate-x-2 transition-all duration-200 group-hover/item:opacity-100 group-hover/item:translate-x-0">
-                      →
-                    </span>
-                  </div>
-
-                  <div className="absolute top-0 left-full ml-1 w-52 bg-white shadow-lg rounded opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200">
-                    <ul className="py-2">
-                      <li>
-                        <Link
-                          href="/scholars"
-                          className="block px-5 py-3 hover:pl-7 transition-all"
-                        >
-                          SCHOLAERS
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/scholars-detail"
-                          className="block px-5 py-3 hover:pl-7 transition-all"
-                        >
-                          SCHOLARS DETAILS
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* service DROPDOWN */}
-          <div className="relative group">
-            <span className="cursor-pointer py-6 inline-block">Service</span>
-
-            <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-              <ul className="py-2 text-sm font-medium">
-                {["SERVICE", " SERVICE DETAILS"].map((item) => (
-                  <li key={item} className="group/item">
-                    <Link
-                      href={`/${item.toLowerCase().replace(" ", "-")}`}
-                      className="flex items-center justify-between px-5 py-3 transition-all duration-200 group-hover/item:pl-7"
-                    >
-                      <span>{item}</span>
-                      <span className="opacity-0 -translate-x-2 transition-all duration-200 group-hover/item:opacity-100 group-hover/item:translate-x-0">
-                        →
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* courses DROPDOWN */}
-          <div className="relative group">
-            <span className="cursor-pointer py-6 inline-block">Courses</span>
-
-            <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-              <ul className="py-2 text-sm font-medium">
-                {["COUSES", " COURSES DETAILS"].map((item) => (
-                  <li key={item} className="group/item">
-                    <Link
-                      href={`/${item.toLowerCase().replace(" ", "-")}`}
-                      className="flex items-center justify-between px-5 py-3 transition-all duration-200 group-hover/item:pl-7"
-                    >
-                      <span>{item}</span>
-                      <span className="opacity-0 -translate-x-2 transition-all duration-200 group-hover/item:opacity-100 group-hover/item:translate-x-0">
-                        →
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Blogs DROPDOWN */}
-          <div className="relative group">
-            <span className="cursor-pointer py-6 inline-block">Blogs</span>
-
-            <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-              <ul className="py-2 text-sm font-medium">
-                {["OUR BLOGS", "BLOGS CLASSIC", "BLOGS DETAILS"].map((item) => (
-                  <li key={item} className="group/item">
-                    <Link
-                      href={`/${item.toLowerCase().replace(" ", "-")}`}
-                      className="flex items-center justify-between px-5 py-3 transition-all duration-200 group-hover/item:pl-7"
-                    >
-                      <span>{item}</span>
-                      <span className="opacity-0 -translate-x-2 transition-all duration-200 group-hover/item:opacity-100 group-hover/item:translate-x-0">
-                        →
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* OTHER LINKS */}
-          {/* <Link href="/services">Pages</Link> */}
-          {/* <Link href="/services">Service</Link> */}
-          {/* <Link href="/courses">Courses</Link> */}
-          {/* <Link href="/blog">Blog</Link> */}
-          <Link href="/contact">Contact</Link>
-        </div>
-
-        {/* RIGHT */}
-        <div className="hidden md:flex items-center gap-4">
-          <Search className="w-10 h-10 p-2 rounded-full bg-gray-100" />
-          <User className="w-10 h-10 p-2 rounded-full bg-gray-100" />
-          <button className="bg-green-700 text-white px-6 py-3 rounded">
-            Quick Join Now
+          {/* MOBILE */}
+          <button className="md:hidden" onClick={() => setIsOpen(true)}>
+            <Menu size={30} />
           </button>
         </div>
+      </nav>
 
-        {/* MOBILE */}
-        <button className="md:hidden" onClick={() => setIsOpen(true)}>
-          <Menu size={30} />
-        </button>
-      </div>
-    </nav>
+      {/* SEARCH BAR - Appears below navbar */}
+      {searchOpen && (
+        <div
+          className="fixed top-20 left-0 right-0 bg-white z-40 shadow-md"
+          style={{
+            animation: "slideDown 0.3s ease-out",
+            marginTop: "80px",
+          }}
+        >
+          <div className="max-w-7xl mx-auto px-4 py-6">
+            <div className="flex items-center gap-4 border-b border-gray-300 pb-3">
+              <Search className="w-6 h-6 text-gray-500" />
+              <input
+                type="text"
+                placeholder="Search Here"
+                className="flex-1 text-lg outline-none placeholder-gray-400 bg-transparent"
+                autoFocus
+              />
+              <button
+                onClick={() => setSearchOpen(false)}
+                className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded-full transition-colors"
+                aria-label="Close search"
+              >
+                <X className="w-5 h-5 text-gray-600" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* USER LOGIN/REGISTER MODAL */}
+      {userOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-50 w-full flex items-center justify-center p-4"
+          onClick={() => setUserOpen(false)}
+        >
+          <div
+            className="bg-white rounded-lg max-w-10xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+            style={{ animation: "fadeInScale 0.3s ease-out" }}
+          >
+            {/* Close Button */}
+            <div className="absolute top-4 right-4 z-10">
+              <button
+                onClick={() => setUserOpen(false)}
+                className="w-10 h-10 flex items-center justify-center bg-white/80 hover:bg-white rounded-full transition-colors shadow-md"
+                aria-label="Close"
+              >
+                <X className="w-6 h-6 text-gray-600" />
+              </button>
+            </div>
+
+            {/* Header with Background Image */}
+            <div
+              className="relative h-72 w-full  bg-cover bg-center rounded-t-lg"
+              style={{ backgroundImage: "url('/images/resource/news-2.jpg')" }}
+            >
+              <div className="absolute inset-0 bg-black/50 rounded-t-lg flex items-center justify-center">
+                <div className="text-center text-white">
+                  <h2 className="text-4xl font-bold mb-2">
+                    Login And Register
+                  </h2>
+                  <div className="flex items-center justify-center gap-2 text-sm">
+                    <span>Home</span>
+                    <span>-</span>
+                    <span>Login And Register</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="px-8 py-8">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold mb-2">
+                  Welcome To AlQuran Online!
+                </h2>
+                <h2 className=" text-3xl ">
+                  Login NOW For An Amazing Quran Experience!
+                </h2>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* LOGIN FORM */}
+                <div>
+                  <h3 className="text-2xl font-bold mb-6">Login</h3>
+                  <form className="space-y-4">
+                    <input
+                      type="text"
+                      placeholder="Username or email address*"
+                      className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-green-700"
+                    />
+                    <input
+                      type="password"
+                      placeholder="Password*"
+                      className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-green-700"
+                    />
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        id="remember"
+                        className="w-4 h-4"
+                      />
+                      <label
+                        htmlFor="remember"
+                        className="text-sm text-gray-600"
+                      >
+                        Remember Me?
+                      </label>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <button
+                        type="submit"
+                        className="bg-green-700 text-white px-8 py-3 rounded hover:bg-green-800 transition-colors"
+                      >
+                        Login
+                      </button>
+                      <a
+                        href="#"
+                        className="text-sm text-gray-600 hover:text-green-700"
+                      >
+                        Forgot your Password?
+                      </a>
+                    </div>
+                  </form>
+                </div>
+
+                {/* REGISTER FORM */}
+                <div>
+                  <h3 className="text-2xl font-bold mb-6">Register</h3>
+                  <form className="space-y-4">
+                    <input
+                      type="text"
+                      placeholder="Username or email address*"
+                      className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-green-700"
+                    />
+                    <input
+                      type="password"
+                      placeholder="Password*"
+                      className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-green-700"
+                    />
+                    <div className="flex items-start gap-2">
+                      <input
+                        type="checkbox"
+                        id="terms"
+                        className="w-4 h-4 mt-1"
+                      />
+                      <label htmlFor="terms" className="text-sm text-gray-600">
+                        By joining, you agree to the Terms and Privacy Policy
+                      </label>
+                    </div>
+                    <button
+                      type="submit"
+                      className="bg-green-700 text-white px-8 py-3 rounded hover:bg-green-800 transition-colors"
+                    >
+                      Join
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <style jsx>{`
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeInScale {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+      `}</style>
+    </>
   );
 }
