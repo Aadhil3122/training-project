@@ -1,24 +1,29 @@
-import TopNavbar from "../../Components/TopNavBar";
-import Navbar from "../../Components/NavBar";
-import Footer from "../../Components/Footer";
+"use client";
+
+import Link from "next/link";
 
 export default function PrayerTime() {
   return (
     <>
-      <TopNavbar />
-      <Navbar />
-      <div className="relative w-full">
-        <img src="/home/page-title.jpg" alt="reading" className="w-full" />
-        <h1
-          className="absolute inset-0 text-4xl 
-                    text-white font-bold text-center justify-center
-                     flex items-center"
-        >
-          Prayer Time
-        </h1>
-        <p className="text-xl font-bold text-white text-center items-center justify-center">
-          Home
-        </p>
+      
+      <div className="relative w-full h-[420px]">
+        <img
+          src="/images/About/page-title.jpg"
+          alt="reading"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white">
+          <h1 className="text-4xl font-bold mb-2">Prayer Times</h1>
+          <p className="text-lg font-semibold">
+            <Link href="/" className="hover:underline">
+              Home
+            </Link>
+            <span className="mx-2">-</span>
+            <span>Prayer Times</span>
+          </p>
+        </div>
       </div>
       <div className="text-center items-center justify-center m-20">
         <h1 className="text-4xl text-center font-bold mt-5 ">
@@ -105,7 +110,7 @@ export default function PrayerTime() {
           </div>
         </div>
       </div>
-      <Footer />
+      
     </>
   );
 }

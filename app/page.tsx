@@ -1,5 +1,3 @@
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import FeaturesSection from "../components/FeaturesSection";
 import WelcomeSection from "../components/WelcomeSection";
@@ -12,15 +10,10 @@ import CustomersReview from "../components/CustomersReview";
 import IslamicInstitute from "../components/IslamicInstitute";
 import Gallery from "../components/Gallery";
 import NewsUpdate from "../components/NewsUpdate";
-import TopPrefooter from "../components/TopPrefooter";
-import PreFooter from "../components/Prefooter";
-import Footer from "../components/Footer";
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <Navbar />
       <Hero />
       <FeaturesSection />
       <WelcomeSection />
@@ -29,13 +22,10 @@ export default function Home() {
       <Services />
       <Courses />
       <InstituteSection />
-      <CustomersReview/>
+      <CustomersReview />
       <IslamicInstitute />
       <Gallery />
       <NewsUpdate />
-      <TopPrefooter/>
-      <PreFooter />
-      <Footer />
     </>
   );
 }

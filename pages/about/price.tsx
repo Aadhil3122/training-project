@@ -1,33 +1,39 @@
-import Header from "@/components/Header";
-import Navbar from "@/components/Navbar";
-import TopPrefooter from "@/components/TopPrefooter";
-import Prefooter from "@/components/Prefooter";
-import Footer from "@/components/Footer";
-
+import Link from "next/link";
 import IslamicInstitute from "@/components/IslamicInstitute";
 
 export default function Price() {
   return (
     <>
-      <Header />
-      <Navbar />
-      <div className="relative w-full">
-        <img src="/images/About/page-title.jpg" alt="reading" className="w-full" />
-        <h1
-          className="absolute inset-0 text-4xl 
-                    text-white font-bold text-center justify-center
-                     flex items-center"
-        >
-          Price
-        </h1>
-        <p className="text-xl font-bold text-white text-center items-center justify-center">
-          Home
-        </p>
+      {/* Hero Section */}
+      <div className="relative w-full h-[400px] flex items-center justify-center">
+        {/* Background Image */}
+        <img
+          src="/images/About/page-title.jpg"
+          alt="reading"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        {/* Content */}
+        <div className="relative z-10 text-center text-white">
+          <h1 className="text-4xl font-bold mb-3">
+            Pricing Plan
+          </h1>
+
+          <p className="text-lg font-semibold">
+            <Link href="/" className="hover:underline">
+              Home
+            </Link>
+            <span className="mx-2">-</span>
+            <span>Pricing Plan</span>
+          </p>
+        </div>
       </div>
+
+      {/* Next Section */}
       <IslamicInstitute />
-        <TopPrefooter />
-        <Prefooter />
-      <Footer />
     </>
   );
 }

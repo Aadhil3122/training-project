@@ -1,15 +1,14 @@
-import TopNavbar from "../../Components/TopNavBar";
-import Navbar from "../../Components/NavBar";
-import Footer from "../../Components/Footer";
-import ServicecardRender from "../../Components/ServiceCardRender";
+import IslamicInstitute from "@/components/IslamicInstitute";
 
 export default function Services() {
   return (
     <>
-      <TopNavbar />
-      <Navbar />
       <div className="relative w-full">
-        <img src="/home/page-title.jpg" alt="reading" className="w-full" />
+        <img
+          src="/images/About/page-title.jpg"
+          alt="reading"
+          className="w-full"
+        />
         <h1
           className="absolute inset-0 text-4xl 
                     text-white font-bold text-center justify-center
@@ -21,8 +20,7 @@ export default function Services() {
           Home
         </p>
       </div>
-      <ServicecardRender />
-      <Footer />
+      <IslamicInstitute />
     </>
   );
 }

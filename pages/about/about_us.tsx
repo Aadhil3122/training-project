@@ -1,18 +1,10 @@
-import Header from "@/components/Header";
-import Navbar from "@/components/Navbar";
 import IslamicInstitute from "@/components/IslamicInstitute";
 import StudentsStatsSection from "@/components/StudentsStatsSection";
 import Courses from "@/components/Courses";
-import TopPrefooter from "@/components/TopPrefooter";
-import Prefooter from "@/components/Prefooter";
-import Footer from "@/components/Footer";
-
 
 export default function About_us() {
   return (
     <>
-      <Header />
-      <Navbar />
       <div className="relative w-full h-[400px]">
         {/* Image */}
         <img
@@ -32,7 +24,7 @@ export default function About_us() {
         >
           About Us
         </h1>
-        <span >Home . About Us</span>
+        <span>Home . About Us</span>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -108,12 +100,9 @@ export default function About_us() {
       </div>
 
       <div>
-        <StudentsStatsSection/>
+        <StudentsStatsSection />
       </div>
       <Courses />
-      <TopPrefooter />
-      <Prefooter />
-      <Footer />
     </>
   );
 }

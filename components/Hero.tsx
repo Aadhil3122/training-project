@@ -1,5 +1,7 @@
 "use client";
+
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Hero() {
   const images = [
@@ -57,9 +59,12 @@ export default function Hero() {
           international standards
         </p>
 
-        <button className="mt-6 bg-yellow-400 text-white px-6 sm:px-8 py-3 rounded hover:bg-green-700 transition">
-          Quick Join Now
-        </button>
+        {/* ✅ Find The Course Button */}
+        <Link href="/course/courseDetails">
+          <button className="mt-6 bg-yellow-400 text-white px-6 sm:px-8 py-3 rounded hover:bg-green-700 transition">
+            Find The Course
+          </button>
+        </Link>
       </div>
 
       {/* Left Arrow */}

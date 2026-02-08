@@ -1,29 +1,39 @@
-import TopNavbar from "../../Components/TopNavBar";
-import Navbar from "../../Components/NavBar";
-import Footer from "../../Components/Footer";
-import BlogClasicRender from "../../Components/BlogClasicRender";
+"use client";
 
-export default function BlogClasic() {
+import NewsUpdate from "@/components/NewsUpdate";
+import Link from "next/link";
+
+export default function blogClassic() {
   return (
     <>
-      <TopNavbar />
-      <Navbar />
-      <div className="relative w-full">
-        <img src="/home/page-title.jpg" alt="reading" className="w-full" />
-        <h1
-          className="absolute inset-0 text-4xl 
-                    text-white font-bold text-center justify-center
-                     flex items-center"
-        >
-          Our Blog
-        </h1>
-        <p className="text-xl font-bold text-white text-center items-center justify-center">
-          Home
-        </p>
+      <div className="relative w-full h-[420px]">
+        {/* Image */}
+        <img
+          src="/images/About/page-title.jpg"
+          alt="reading"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        {/* TEXT — THIS IS THE KEY FIX */}
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white">
+          <h1 className="text-4xl font-bold mb-2">Blog List</h1>
+
+          <p className="text-lg font-semibold">
+            <Link href="/" className="hover:underline">
+              Home
+            </Link>
+            <span className="mx-2">-</span>
+            <span>Blog List</span>
+          </p>
+        </div>
       </div>
+
       <div className="grid grid-cols-3 gap-6">
         <div className="grid col-span-2">
-          <BlogClasicRender />
+          <NewsUpdate />
         </div>
         <div>
           <div className="bg-gray-100 mr-10">
@@ -66,7 +76,7 @@ export default function BlogClasic() {
               <h1 className="font-semibold text-2xl p-3">Lastest News</h1>
               <div className="flex items-center gap-4 border border-spacing-1 p-5">
                 <img
-                  src="/Blog/post-thumb-3.png"
+                  src="/images/Blog/post-thumb-3.png"
                   alt="quran"
                   className="w-20 h-20 rounded-full object-cover"
                 />
@@ -81,7 +91,7 @@ export default function BlogClasic() {
 
               <div className="flex items-center gap-4 border border-spacing-1 p-5">
                 <img
-                  src="/Blog/post-thumb-2.webp"
+                  src="/images/Blog/post-thumb-2.webp"
                   alt="quran"
                   className="w-20 h-20 rounded-full object-cover"
                 />
@@ -96,7 +106,7 @@ export default function BlogClasic() {
 
               <div className="flex items-center gap-4 border border-spacing-1 p-5">
                 <img
-                  src="/Blog/post-thumb-1.webp"
+                  src="/images/Blog/post-thumb-1.webp"
                   alt="quran"
                   className="w-20 h-20 rounded-full object-cover"
                 />
@@ -140,8 +150,6 @@ export default function BlogClasic() {
           </div>
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }

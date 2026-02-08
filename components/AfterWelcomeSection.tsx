@@ -1,7 +1,27 @@
+"use client";
 import React from "react";
+import Link from "next/link";
 import { BookOpen, Hand, Award } from "lucide-react";
 
 export default function AftreWelcomeSection() {
+  const services = [
+    {
+      title: "Online Quran\nClasses",
+      icon: BookOpen,
+      href: "/services/serviceDetails",
+    },
+    {
+      title: "Tafseer\nCourse",
+      icon: Hand,
+      href: "/services/serviceDetails",
+    },
+    {
+      title: "We Value\nOur Students",
+      icon: Award,
+      href: "/services/serviceDetails",
+    },
+  ];
+
   return (
     <div className="relative bg-gray-950 overflow-hidden py-16">
       {/* Background Image */}
@@ -28,21 +48,7 @@ export default function AftreWelcomeSection() {
 
         {/* Service Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-          {/* Card */}
-          {[
-            {
-              title: "Online Quran\nClasses",
-              icon: BookOpen,
-            },
-            {
-              title: "Tafseer\nCourse",
-              icon: Hand,
-            },
-            {
-              title: "We Value\nOur Students",
-              icon: Award,
-            },
-          ].map((item, index) => (
+          {services.map((item, index) => (
             <div
               key={index}
               className="relative bg-white rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group overflow-hidden"
@@ -72,12 +78,15 @@ export default function AftreWelcomeSection() {
                   lorem ipsum dolor sit amet
                 </p>
 
-                <button className="flex items-center gap-2 text-gray-700 font-semibold hover:text-orange-500 transition-colors">
-                  Read More
-                  <span className="text-xl group-hover:translate-x-1 transition-transform">
-                    →
-                  </span>
-                </button>
+                {/* ✅ Updated Read More button */}
+                <Link href={item.href}>
+                  <button className="flex items-center gap-2 text-gray-700 font-semibold hover:text-orange-500 transition-colors">
+                    Read More
+                    <span className="text-xl group-hover:translate-x-1 transition-transform">
+                      →
+                    </span>
+                  </button>
+                </Link>
               </div>
             </div>
           ))}

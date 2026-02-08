@@ -1,15 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Header from "@/components/Header";
-import Navbar from "@/components/Navbar";
-import Prefooter from "@/components/Prefooter";
-import TopPrefooter from "@/components/TopPrefooter";
-import Footer from "@/components/Footer";
+import Link from "next/link";
+
 import NewsUpdate from "@/components/NewsUpdate";
 import { Check, Plus, Minus } from "lucide-react";
 
-export default function PastEvet() {
+export default function PastEvent() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqs = [
@@ -37,22 +34,31 @@ export default function PastEvet() {
 
   return (
     <>
-      <Header />
-      <Navbar />
-
-      {/* Hero */}
+      {/* ================= HERO ================= */}
       <div className="relative w-full">
         <img
           src="/images/About/page-title.jpg"
           alt="reading"
           className="w-full"
         />
-        <h1 className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-white">
-          Events Details
-        </h1>
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white">
+          <h1 className="text-4xl font-bold mb-3">Event Details</h1>
+
+          <p className="text-lg font-semibold">
+            <Link href="/" className="hover:underline">
+              Home
+            </Link>
+            <span className="mx-2">-</span>
+            <span>Event Details</span>
+          </p>
+        </div>
       </div>
 
-      {/* Content */}
+      {/* ================= CONTENT ================= */}
       <div className="relative m-10">
         <div className="flex justify-center">
           <img
@@ -62,12 +68,13 @@ export default function PastEvet() {
           />
         </div>
 
+        {/* Time Badge */}
         <div className="absolute top-[720px] left-12 bg-green-600 text-white px-3 py-1 rounded-md">
           10:00 pm - 11:45 pm
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-16">
-          {/* Left column */}
+          {/* ================= LEFT ================= */}
           <div className="lg:col-span-2">
             <p className="text-xl text-gray-500 font-semibold">
               Fiolveien 230, Norway
@@ -77,10 +84,12 @@ export default function PastEvet() {
               Learning Quranic Arabic For Beginners
             </h1>
 
-            <div className="flex items-center gap-6 my-6">
-              <div className="bg-gray-200 px-6 py-4 flex items-center gap-6">
+            <div className="flex flex-wrap items-center gap-6 my-6">
+              <div className="bg-gray-200 px-6 py-4 flex items-center gap-6 rounded-lg">
                 <span className="font-bold">Upcoming Event Price</span>
-                <span className="bg-black text-white px-4 py-2">$12.00</span>
+                <span className="bg-black text-white px-4 py-2 rounded-md">
+                  $12.00
+                </span>
               </div>
 
               <button className="border border-green-600 text-green-600 px-10 py-4 rounded-lg hover:bg-green-600 hover:text-white transition">
@@ -95,7 +104,7 @@ export default function PastEvet() {
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
 
-            {/* Bullet points */}
+            {/* Bullet Points */}
             {[1, 2].map((_, i) => (
               <div key={i} className="flex gap-4 mt-6">
                 <div className="bg-green-600 text-white p-2 rounded-md">
@@ -108,7 +117,7 @@ export default function PastEvet() {
               </div>
             ))}
 
-            {/* FAQ */}
+            {/* ================= FAQ ================= */}
             <div className="my-10">
               <h2 className="text-3xl font-bold mb-6">
                 Frequently Asked Questions
@@ -143,7 +152,7 @@ export default function PastEvet() {
             <NewsUpdate />
           </div>
 
-          {/* Right column */}
+          {/* ================= RIGHT ================= */}
           <div className="bg-gray-50 rounded-2xl p-6 shadow-sm space-y-4">
             <h3 className="text-lg font-semibold">About The Organiser</h3>
 
@@ -170,10 +179,6 @@ export default function PastEvet() {
           </div>
         </div>
       </div>
-
-      <Prefooter />
-      <TopPrefooter />
-      <Footer />
     </>
   );
 }
