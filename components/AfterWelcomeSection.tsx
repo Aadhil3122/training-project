@@ -8,17 +8,17 @@ export default function AftreWelcomeSection() {
     {
       title: "Online Quran\nClasses",
       icon: BookOpen,
-      href: "/services/serviceDetails",
+      href: "/serviceDetails",
     },
     {
       title: "Tafseer\nCourse",
       icon: Hand,
-      href: "/services/serviceDetails",
+      href: "/serviceDetails",
     },
     {
       title: "We Value\nOur Students",
       icon: Award,
-      href: "/services/serviceDetails",
+      href: "/serviceDetails",
     },
   ];
 

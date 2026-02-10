@@ -1,10 +1,9 @@
 "use client";
 import Link from "next/link";
 
-export default function Scholards() {
+export default function Scholars() {
   return (
     <>
-      
       <div className="relative w-full h-[420px]">
         <img
           src="/images/About/page-title.jpg"
@@ -24,7 +23,6 @@ export default function Scholards() {
           </p>
         </div>
       </div>
-      
     </>
   );
 }

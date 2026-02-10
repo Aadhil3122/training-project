@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Facebook, Twitter, Youtube, Instagram } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -30,7 +31,7 @@ export default function Prefooter() {
             />
             <hr className="border-white w-20 mb-4" />
 
-            <p className="mb-1">58 Howard Street #2 cairo.</p>
+            <p className="mb-1">58 Howard Street #2 Cairo.</p>
             <p className="mb-1">CA 941</p>
             <p className="mb-2">(+88)311-2121101</p>
 
@@ -54,20 +55,33 @@ export default function Prefooter() {
               Links
             </h3>
             <ul className="space-y-2">
-              <li className="hover:text-yellow-500 cursor-pointer transition">
-                About us
+              <li>
+                <Link href="/faqs" className="hover:text-yellow-500 transition">
+                  About Us
+                </Link>
               </li>
-              <li className="hover:text-yellow-500 cursor-pointer transition">
-                Scholars
+              <li>
+                <Link href="/faqs" className="hover:text-yellow-500 transition">
+                  Scholars
+                </Link>
               </li>
-              <li className="hover:text-yellow-500 cursor-pointer transition">
-                Courses
+              <li>
+                <Link href="/faqs" className="hover:text-yellow-500 transition">
+                  Courses
+                </Link>
               </li>
-              <li className="hover:text-yellow-500 cursor-pointer transition">
-                Latest News
+              <li>
+                <Link href="/faqs" className="hover:text-yellow-500 transition">
+                  Latest News
+                </Link>
               </li>
-              <li className="hover:text-yellow-500 cursor-pointer transition">
-                Contact
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-yellow-500 transition"
+                >
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const images = [
   "/images/gallery/1.jpg",
@@ -43,9 +44,11 @@ export default function Gallery() {
 
         {/* RIGHT BUTTON */}
         <div className="flex justify-center md:justify-end w-full md:w-auto">
-          <button className="bg-green-700 text-white px-6 py-3 rounded hover:bg-green-800 transition text-sm sm:text-base">
-            Quick Start Now
-          </button>
+          <Link href="/contact">
+            <button className="bg-green-700 text-white px-6 py-3 rounded hover:bg-green-800 transition text-sm sm:text-base">
+              Quick Start Now
+            </button>
+          </Link>
         </div>
       </div>
 

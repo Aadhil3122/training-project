@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import Link from "next/link";
 import { Clock, MessageCircle } from "lucide-react";
 
 export default function NewsUpdate() {
@@ -55,8 +57,6 @@ export default function NewsUpdate() {
                            scale-110 group-hover:scale-100
                            transition-transform duration-700"
               />
-
-              {/* WAVE EFFECT */}
               <div
                 className="absolute -top-full -left-full
                            w-[200%] h-[200%]
@@ -103,12 +103,15 @@ export default function NewsUpdate() {
                   </span>
                 </div>
 
-                <button
-                  className="bg-green-700 text-white px-4 sm:px-5 py-2 rounded
-                             hover:bg-yellow-500 transition text-sm sm:text-base"
-                >
-                  Read More
-                </button>
+                {/* LINK TO COURSE DETAILS */}
+                <Link href="/coursedetails">
+                  <button
+                    className="bg-green-700 text-white px-4 sm:px-5 py-2 rounded
+                               hover:bg-yellow-500 transition text-sm sm:text-base"
+                  >
+                    Read More
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

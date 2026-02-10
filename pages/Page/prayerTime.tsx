@@ -5,7 +5,6 @@ import Link from "next/link";
 export default function PrayerTime() {
   return (
     <>
-      
       <div className="relative w-full h-[420px]">
         <img
           src="/images/About/page-title.jpg"
@@ -39,7 +38,7 @@ export default function PrayerTime() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <div className="flex items-center justify-center">
               <img
-                src="/logo/bismillah-2.png"
+                src="/images/logo/bismillah-2.png"
                 alt="bismi"
                 className="flex items-center"
               />
@@ -60,7 +59,7 @@ export default function PrayerTime() {
 
             <div className="flex items-center justify-center">
               <img
-                src="/logo/bismillah-2.png"
+                src="/images/logo/bismillah-2.png"
                 alt="bismi"
                 className="flex items-center"
               />
@@ -110,7 +109,6 @@ export default function PrayerTime() {
           </div>
         </div>
       </div>
-      
     </>
   );
 }

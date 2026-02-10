@@ -1,30 +1,30 @@
+'use client";';
 import IslamicInstitute from "@/components/IslamicInstitute";
 import StudentsStatsSection from "@/components/StudentsStatsSection";
 import Courses from "@/components/Courses";
+import Link from "next/link";
 
 export default function About_us() {
   return (
     <>
-      <div className="relative w-full h-[400px]">
-        {/* Image */}
+      <div className="relative w-full h-[420px]">
         <img
           src="/images/About/page-title.jpg"
-          alt="Banner"
-          className="w-full h-full object-cover"
+          alt="reading"
+          className="absolute inset-0 w-full h-full object-cover"
         />
+        <div className="absolute inset-0 bg-black/60"></div>
 
-        {/* Heading */}
-        <h1
-          className="
-                        absolute inset-0
-                        flex items-center justify-center
-                        text-white text-4xl md:text-5xl font-bold
-                        bg-black/40
-                        "
-        >
-          About Us
-        </h1>
-        <span>Home . About Us</span>
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white">
+          <h1 className="text-4xl font-bold mb-2">About Us</h1>
+          <p className="text-lg font-semibold">
+            <Link href="/" className="hover:underline">
+              Home
+            </Link>
+            <span className="mx-2">-</span>
+            <span>About Us</span>
+          </p>
+        </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-16">

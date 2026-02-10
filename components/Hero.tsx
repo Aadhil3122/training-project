@@ -59,8 +59,7 @@ export default function Hero() {
           international standards
         </p>
 
-        {/* ✅ Find The Course Button */}
-        <Link href="/course/courseDetails">
+        <Link href="/coursedetails">
           <button className="mt-6 bg-yellow-400 text-white px-6 sm:px-8 py-3 rounded hover:bg-green-700 transition">
             Find The Course
           </button>

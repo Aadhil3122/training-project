@@ -39,18 +39,19 @@ export default function Faqs() {
     },
   ];
 
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  // first FAQ open
+  const [openIndex, setOpenIndex] = useState(0);
 
   return (
     <>
-      {/* Page Title */}
+      {/* PAGE TITLE */}
       <div className="relative w-full h-[420px]">
         <img
           src="/images/About/page-title.jpg"
           alt="FAQs"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/60"></div>
 
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white text-center">
           <h1 className="text-4xl font-bold mb-2">FAQs</h1>
@@ -64,7 +65,7 @@ export default function Faqs() {
         </div>
       </div>
 
-      {/* Heading */}
+      {/* HEADING */}
       <div className="my-20 text-center px-6">
         <h1 className="text-4xl font-bold">
           Find answers to the most frequently <br />
@@ -72,22 +73,22 @@ export default function Faqs() {
         </h1>
       </div>
 
-      {/* Content */}
-      <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-10">
-        {/* FAQ */}
-        <div className="flex-1">
+      {/* CONTENT */}
+      <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-14">
+        {/* FAQ LIST */}
+        <div className="flex-1 max-w-2xl">
           {faqs.map((faq, index) => (
             <div key={index} className="mb-4">
               <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex justify-between items-center bg-gray-600 text-white px-6 py-4 rounded-lg font-semibold"
+                onClick={() => setOpenIndex(index)}
+                className="w-full flex justify-between items-center bg-white text-black px-6 py-4 rounded-lg font-semibold border border-gray-300 shadow-sm"
               >
                 {faq.question}
                 {openIndex === index ? <FiMinus /> : <FiPlus />}
               </button>
 
               {openIndex === index && (
-                <div className="bg-gray-100 p-6 rounded-b-lg">
+                <div className="bg-gray-100 p-6 rounded-b-lg border border-t-0 border-gray-300">
                   <p className="text-gray-700">{faq.answer}</p>
                 </div>
               )}
@@ -95,11 +96,11 @@ export default function Faqs() {
           ))}
         </div>
 
-        {/* Contact Card */}
+        {/* CONTACT CARD */}
         <div className="flex-1 flex justify-center">
           <div className="bg-gradient-to-t from-green-600 to-yellow-400 rounded-xl p-8 w-full max-w-sm relative text-center">
             <img
-              src="/About/welcome_two.webp"
+              src="/images/About/welcome_two.webp"
               alt="logo"
               className="w-24 mx-auto -mt-16 animate-spin"
             />

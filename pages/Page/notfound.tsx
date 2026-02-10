@@ -5,7 +5,6 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <>
-      
       <div className="relative w-full h-[420px]">
         <img
           src="/images/About/page-title.jpg"
@@ -29,7 +28,7 @@ export default function NotFound() {
         <div className="relative flex justify-center items-center">
           <h1 className="text-[200px] font-extrabold text-center">404</h1>
           <img
-            src="/logo/quran.png"
+            src="/images/logo/quran.png"
             alt="quraan"
             className="absolute w-25 h-25 -mt-10 transition-transform animate-bounce"
           />
@@ -42,16 +41,18 @@ export default function NotFound() {
           We Can Not Seem to Find the Page You are Looking for
         </p>
         <div className="flex justify-center">
-          <button
-            className="
-                    bg-yellow-300 text-black font-bold py-5 px-7 rounded-lg transition-all duration-300 
-                    hover:bg-green-800 hover:text-white hover:scale-150 hover:shadow-2xl active:scale-95"
-          >
-            Back To Home
-          </button>
+          <Link href="/">
+            <button
+              className="
+        bg-yellow-300 text-black font-bold py-5 px-7 rounded-lg transition-all duration-300 
+        hover:bg-green-800 hover:text-white hover:scale-150 hover:shadow-2xl active:scale-95
+      "
+            >
+              Back To Home
+            </button>
+          </Link>
         </div>
       </div>
-      
     </>
   );
 }

@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function IslamicInstitute() {
   const plans = [
     {
@@ -55,7 +57,6 @@ export default function IslamicInstitute() {
   return (
     <section className="py-16 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
-
         {/* Heading */}
         <p className="text-green-600 font-semibold mb-2 text-sm sm:text-base">
           WHY TO CHOOSE US
@@ -75,9 +76,11 @@ export default function IslamicInstitute() {
                          hover:shadow-xl transition"
             >
               {/* Price Circle */}
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full
+              <div
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full
                               bg-yellow-400 flex flex-col
-                              items-center justify-center mb-6 border">
+                              items-center justify-center mb-6 border"
+              >
                 <span className="text-xl sm:text-2xl font-bold">
                   {plan.price}
                 </span>
@@ -90,14 +93,18 @@ export default function IslamicInstitute() {
               </h3>
 
               {/* Students */}
-              <div className="bg-yellow-200 text-xs sm:text-sm
-                              px-4 py-2 rounded-md mb-5">
+              <div
+                className="bg-yellow-200 text-xs sm:text-sm
+                              px-4 py-2 rounded-md mb-5"
+              >
                 {plan.students}
               </div>
 
               {/* Features */}
-              <ul className="text-gray-600 text-xs sm:text-sm
-                             space-y-2 mb-6 text-left w-full">
+              <ul
+                className="text-gray-600 text-xs sm:text-sm
+                             space-y-2 mb-6 text-left w-full"
+              >
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="text-gray-400 mt-1">•</span>
@@ -106,17 +113,19 @@ export default function IslamicInstitute() {
                 ))}
               </ul>
 
-              {/* Button */}
-              <button
-                className="mt-auto w-full
-                           bg-green-800 text-white
-                           px-6 py-2.5 rounded-md
-                           text-sm font-semibold
-                           hover:bg-yellow-400 hover:text-black
-                           transition"
-              >
-                Free Trial
-              </button>
+              {/* Button → LINK TO COURSE DETAILS */}
+              <Link href="/coursedetails" className="w-full">
+                <button
+                  className="mt-auto w-full
+                             bg-green-800 text-white
+                             px-6 py-2.5 rounded-md
+                             text-sm font-semibold
+                             hover:bg-yellow-400 hover:text-black
+                             transition"
+                >
+                  Free Trial
+                </button>
+              </Link>
             </div>
           ))}
         </div>

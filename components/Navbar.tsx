@@ -1,18 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { Search, User, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { Search, User, X, ChevronRight } from "lucide-react";
 
 export default function Navbar() {
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
   const homePages = [
-    { img: "/images/pagesz/Home-1.jpg", label: "Home 01", link: "/" },
-    { img: "/images/pagesz/Home-2.jpg", label: "Home 02", link: "/home-2" },
-    { img: "/images/pagesz/Home-3.jpg", label: "Home 03", link: "/home-3" },
-    { img: "/images/pagesz/Home-4.jpg", label: "Home 04", link: "/home-4" },
-    { img: "/images/pagesz/Home-5.jpg", label: "Home 05", link: "/home-5" },
-    { img: "/images/pagesz/Home-6.jpg", label: "Home 06", link: "/home-6" },
-    { img: "/images/pagesz/Home-7.jpg", label: "Home 07", link: "/home-7" },
-    { img: "/images/pagesz/Home-8.jpg", label: "Home 08", link: "/home-8" },
+    {
+      img: "/images/pagesz/Home-1.jpg",
+      label: "Home 01",
+      link: "/welcomesection",
+    },
+    { img: "/images/pagesz/Home-2.jpg", label: "Home 02", link: "/" },
+    { img: "/images/pagesz/Home-3.jpg", label: "Home 03", link: "/" },
+    { img: "/images/pagesz/Home-4.jpg", label: "Home 04", link: "/" },
+    { img: "/images/pagesz/Home-5.jpg", label: "Home 05", link: "/" },
+    { img: "/images/pagesz/Home-6.jpg", label: "Home 06", link: "/" },
+    { img: "/images/pagesz/Home-7.jpg", label: "Home 07", link: "/" },
+    { img: "/images/pagesz/Home-8.jpg", label: "Home 08", link: "/" },
   ];
 
   return (
@@ -23,10 +31,8 @@ export default function Navbar() {
 
         {/* ================= MAIN MENU ================= */}
         <div className="hidden md:flex items-center gap-8 font-semibold">
-          {/* HOME */}
           <HomeMegaMenu homePages={homePages} />
 
-          {/* ABOUT */}
           <Menu title="About">
             <HoverItem href="/about-us" label="About Us" />
             <HoverItem href="/prices" label="Price" />
@@ -36,39 +42,34 @@ export default function Navbar() {
             </SubMenu>
           </Menu>
 
-          {/* PAGES */}
           <Menu title="Pages">
             <HoverItem href="/faqs" label="FAQ'S" />
             <HoverItem href="/prayertime" label="Prayer Time" />
             <HoverItem href="/recordedclass" label="Record Class" />
             <HoverItem href="/register" label="Register" />
             <HoverItem href="/notfound" label="Not Found" />
-            <SubMenu label="Scholards">
-              <HoverItem href="/scholards" label="Scholards" />
-              <HoverItem href="/scholarddetails" label="Scholards Details" />
+            <SubMenu label="Scholars">
+              <HoverItem href="/Scholars" label="Scholars" />
+              <HoverItem href="/Scholarsdetails" label="Scholars Details" />
             </SubMenu>
           </Menu>
 
-          {/* SERVICE */}
           <Menu title="Service">
             <HoverItem href="/service" label="Service" />
             <HoverItem href="/servicedetails" label="Service Details" />
           </Menu>
 
-          {/* COURSES */}
           <Menu title="Courses">
             <HoverItem href="/courses" label="Courses" />
             <HoverItem href="/coursedetails" label="Course Details" />
           </Menu>
 
-          {/* BLOG */}
           <Menu title="Blog">
             <HoverItem href="/ourblog" label="Our Blog" />
             <HoverItem href="/blogclassic" label="Blog Classic" />
             <HoverItem href="/blogdetails" label="Blog Details" />
           </Menu>
 
-          {/* CONTACT */}
           <Link
             href="/contact"
             className="py-6 inline-block hover:text-green-700 transition"
@@ -78,13 +79,39 @@ export default function Navbar() {
         </div>
 
         {/* ================= RIGHT ICONS + Quick Join Now ================= */}
-        <div className="hidden md:flex items-center gap-4">
-          <Search />
-          <User />
+        <div className="hidden md:flex items-center gap-4 relative">
+          {/* SEARCH ICON */}
+          <button
+            onClick={() => setShowSearch(!showSearch)}
+            className="relative z-50 p-2"
+          >
+            {showSearch ? <X size={20} /> : <Search size={20} />}
+          </button>
+
+          {/* FULL-WIDTH SEARCH OVERLAY */}
+          {showSearch && (
+            <div className="fixed inset-0 z-40 bg-black/40 flex justify-center items-start pt-20">
+              <div className="w-full max-w-5xl px-6">
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Type your search here..."
+                  className="w-full px-6 py-4 text-xl rounded-lg shadow-lg border-2 border-blue-500 focus:border-green-700 focus:outline-none transition-all duration-300"
+                  autoFocus
+                />
+              </div>
+            </div>
+          )}
+
+          {/* USER ICON */}
+          <Link href="/contact">
+            <User size={20} />
+          </Link>
 
           {/* Quick Join Now */}
           <Link
-            href="/contact/contact"
+            href="/contact"
             className="inline-flex items-center justify-center px-6 py-3 rounded bg-green-700 text-white
                        transition-colors duration-300 hover:bg-black"
           >
@@ -98,7 +125,6 @@ export default function Navbar() {
 
 /* ================= REUSABLE COMPONENTS ================= */
 
-/* Home Mega Menu */
 function HomeMegaMenu({
   homePages,
 }: {
@@ -143,7 +169,6 @@ function HomeMegaMenu({
   );
 }
 
-/* Parent menu with dropdown */
 function Menu({
   title,
   children,
@@ -164,7 +189,6 @@ function Menu({
   );
 }
 
-/* Menu item → arrow on hover */
 function HoverItem({ href, label }: { href: string; label: string }) {
   return (
     <li>
@@ -173,16 +197,11 @@ function HoverItem({ href, label }: { href: string; label: string }) {
         className="group flex items-center justify-between px-5 py-3 hover:bg-gray-50"
       >
         {label}
-        <ChevronRight
-          size={14}
-          className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition text-gray-400"
-        />
       </Link>
     </li>
   );
 }
 
-/* Nested submenu */
 function SubMenu({
   label,
   children,
@@ -194,10 +213,7 @@ function SubMenu({
     <li className="relative group/sub">
       <div className="group flex items-center justify-between px-5 py-3 hover:bg-gray-50 cursor-pointer">
         {label}
-        <ChevronRight
-          size={14}
-          className="opacity-0 group-hover:opacity-100 transition text-gray-400"
-        />
+        <ChevronRight className="w-4 h-4 ml-2" /> {/* Chevron for submenu */}
       </div>
       <ul
         className="absolute top-0 left-full w-56 bg-white shadow-lg rounded

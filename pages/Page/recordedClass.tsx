@@ -5,12 +5,27 @@ import Link from "next/link";
 
 export default function RecordedClass() {
   const classes = [
-    { img: "/images/Recorder/class-1.webp", title: "Tafseer Quran online for Kids" },
-    { img: "/images/Recorder/class-2.webp", title: "Arabic Conversation Course" },
-    { img: "/images/Recorder/class-3.webp", title: "Online Quran Recitation Course" },
-    { img: "/images/Recorder/class-4.webp", title: "Online Tajweed Rules Course" },
-    { img: "/images/Recorder/class-5.webp", title: "Quran Memorization Ijazah" },
-    { img: "/images/Recorder/class-6.webp", title: "Quran Recitation Ijazah" },
+    {
+      img: "/images/recorder/class-1.webp",
+      title: "Tafseer Quran online for Kids",
+    },
+    {
+      img: "/images/recorder/class-2.webp",
+      title: "Arabic Conversation Course",
+    },
+    {
+      img: "/images/recorder/class-3.webp",
+      title: "Online Quran Recitation Course",
+    },
+    {
+      img: "/images/recorder/class-4.webp",
+      title: "Online Tajweed Rules Course",
+    },
+    {
+      img: "/images/recorder/class-5.webp",
+      title: "Quran Memorization Ijazah",
+    },
+    { img: "/images/recorder/class-6.webp", title: "Quran Recitation Ijazah" },
   ];
 
   return (

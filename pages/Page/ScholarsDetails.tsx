@@ -2,10 +2,9 @@
 import IslamicInstitute from "@/components/IslamicInstitute";
 import Link from "next/link";
 
-export default function ScholardDetails() {
+export default function ScholarsDetails() {
   return (
     <>
-      
       <div className="relative w-full h-[420px]">
         <img
           src="/images/About/page-title.jpg"
@@ -28,7 +27,7 @@ export default function ScholardDetails() {
       <div className="grid grid-cols-1 lg:grid-cols-2 justify-start">
         <div>
           <img
-            src="/home/4.jpg"
+            src="/images/gallery/4.jpg"
             alt="reading"
             className=" rounded-xl w-[500px] mx-16"
           />
@@ -64,7 +63,6 @@ export default function ScholardDetails() {
         </div>
       </div>
       <IslamicInstitute />
-      
     </>
   );
 }

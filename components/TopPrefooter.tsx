@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function TopPrefooter() {
@@ -37,9 +38,11 @@ export default function TopPrefooter() {
 
             {/* Right Side - Button */}
             <div className="flex-shrink-0">
-              <button className="bg-white text-gray-900 font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-black hover:text-white transition-colors shadow-md text-sm sm:text-base">
-                Get In Touch
-              </button>
+              <Link href="/contact">
+                <button className="bg-white text-gray-900 font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-black hover:text-white transition-colors shadow-md text-sm sm:text-base">
+                  Get In Touch
+                </button>
+              </Link>
             </div>
           </div>
         </div>

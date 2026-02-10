@@ -1,46 +1,47 @@
-import Gallery from "@/components/Gallery";
+"use client";
 
+import Gallery from "@/components/Gallery";
 import { BookOpen, CheckCheck } from "lucide-react";
+import Link from "next/link";
 
 export default function ServiceDetails() {
   return (
     <>
-      
-
       {/* PAGE TITLE */}
-      <div className="relative w-full">
+      <div className="relative w-full h-[420px]">
         <img
           src="/images/About/page-title.jpg"
           alt="reading"
-          className="w-full"
+          className="absolute inset-0 w-full h-full object-cover"
         />
 
-        {/* ICON CIRCLE */}
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-60
-          rounded-full bg-yellow-500 w-20 h-20 flex items-center justify-center z-10"
-        >
+        <div className="absolute top-6 left-6 z-20 bg-white p-3 rounded-full">
           <BookOpen className="w-8 h-8 text-black" />
         </div>
 
-        <h1 className="absolute inset-0 text-4xl text-white font-bold flex items-center justify-center">
-          Services Details
-        </h1>
+        <div className="absolute inset-0 bg-black/60"></div>
 
-        <p className="absolute bottom-5 w-full text-xl font-bold text-white text-center">
-          Home
-        </p>
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white">
+          <h1 className="text-4xl font-bold mb-2">Service Details</h1>
+          <p className="text-lg font-semibold">
+            <Link href="/" className="hover:underline">
+              Home
+            </Link>
+            <span className="mx-2">-</span>
+            <span>Service Details</span>
+          </p>
+        </div>
       </div>
 
       {/* SERVICE HERO */}
       <div className="relative p-5 flex justify-center text-center">
         <img
-          src="/Service/service-detail.png"
+          src="/images/Service/service-detail.png"
           alt="background"
           className="w-full rounded-lg"
         />
 
-        <div className="absolute top-52 left-4 right-4 text-white text-center">
+        <div className="absolute top-52 left-4 right-4 text-white">
           <h1 className="text-4xl font-bold">Quranic Junior Al-Hafiz</h1>
 
           <p className="text-lg text-gray-300 mt-5">
@@ -53,53 +54,35 @@ export default function ServiceDetails() {
 
           <p className="px-56 text-lg mt-16 text-gray-300">
             In-class activities will also incorporate some lessons on Hadith and
-            Quranic Arabic alongside surah understanding. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum.
+            Quranic Arabic alongside surah understanding.
           </p>
         </div>
       </div>
 
       {/* CONTENT SECTION */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 px-5">
-        {/* LEFT */}
         <div>
           <h1 className="text-2xl font-bold">Surah Al-Takwir recitation</h1>
 
           <p className="text-lg text-gray-400 font-semibold pt-4">
-            This class is for students who can fluently read Qur’an. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip. Duis aute irure dolor in reprehenderit in voluptate velit
-            esse cillum.
+            This class is for students who can fluently read Qur’an.
           </p>
 
-          <p className="text-lg text-gray-400 font-semibold pt-4">
-            Unde omnis iste natus error sit voluptatem accusantium doloremque
-            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-            veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-          </p>
-
-          {/* CHECK LIST */}
           {[
-            "This class focuses mainly on Qur’an memorisation and revision of surahs that have already been memorised.",
-            "Sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis qui dolorem eum.",
-            "In-class activities will also incorporate some lessons on Hadith and Quranic Arabic alongside surah understanding.",
+            "This class focuses mainly on Qur’an memorisation and revision of surahs.",
+            "Sint occaecat cupidatat non proident.",
+            "Ut enim ad minima veniam.",
+            "Includes Hadith and Quranic Arabic lessons.",
           ].map((text, index) => (
-            <div
-              key={index}
-              className="flex items-start gap-4 text-gray-500 mt-5"
-            >
+            <div key={index} className="flex items-start gap-4 mt-5">
               <div className="bg-black p-3 rounded-xl text-white">
                 <CheckCheck className="w-6 h-6" />
               </div>
-              <p className="text-lg font-semibold">{text}</p>
+              <p className="text-lg font-semibold text-gray-500">{text}</p>
             </div>
           ))}
         </div>
 
-        {/* RIGHT */}
         <div>
           <img
             src="/images/Service/service.png"
@@ -110,7 +93,6 @@ export default function ServiceDetails() {
       </div>
 
       <Gallery />
-      
     </>
   );
 }

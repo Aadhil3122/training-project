@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function Courses() {
@@ -133,9 +134,14 @@ export default function Courses() {
 
                 {/* Footer */}
                 <div className="flex items-center justify-between gap-3">
-                  <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-yellow-500 transition text-sm sm:text-base">
-                    Study Now
+                  <button className="text-blue-600 font-semibold hover:underline">
+                    View Details
                   </button>
+                  <Link href="/blogdetails">
+                    <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-yellow-500 transition text-sm sm:text-base">
+                      Study Now
+                    </button>
+                  </Link>
                   <div className="text-sm">
                     <span className="text-gray-400 mr-2 line-through">
                       {course.oldPrice}
@@ -172,9 +178,11 @@ export default function Courses() {
             </div>
 
             <div className="relative z-10">
-              <button className="bg-green-800 text-white px-6 py-3 rounded font-bold hover:bg-black transition">
-                Quick Start Now
-              </button>
+              <Link href="/contact">
+                <button className="bg-green-800 text-white px-6 py-3 rounded font-bold hover:bg-black transition">
+                  Quick Start Now
+                </button>
+              </Link>
             </div>
           </div>
         </div>
